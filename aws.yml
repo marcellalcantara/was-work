@@ -10,7 +10,7 @@ on:
   jobs:
     aws-create-vm:
       run-on: ubuntu-latest
-      environment: PAT
+      environment: teste
       steps: 
         uses: actions/labeler@v4
           with: 
