@@ -1,0 +1,21 @@
+on:
+  workflow_call: 
+   inputs: 
+     msg: 
+       type: string
+   secrets:
+     PAT: 
+       type: string
+       required: true 
+  jobs:
+    aws-create-vm:
+      run-on: ubuntu-latest
+      environment: teste
+      steps: 
+        uses: actions/labeler@v4
+          with: 
+            aws-pat: ${{ secrets.PAT }}
+            msg: ${{ inputs.msg }}
+            
+      
+  
