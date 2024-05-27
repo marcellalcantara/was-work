@@ -22,7 +22,7 @@ on:
         description: Vamos tomar café
 
       ambiente: 
-        type: enviroment
+        type: environment
         
       nuvem: 
         type: choice
