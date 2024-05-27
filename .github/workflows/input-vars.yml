@@ -36,10 +36,29 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   call-aws-workflow:
+    if: ${{github.event.inputs.nuvem}} == 'aws'
     uses: ./.github/workflows/aws.yml
     with:
       msg: ${{github.event.inputs.mensagem}}
     secrets: inherit  
+  call-azure-workflow:
+    if: ${{github.event.inputs.nuvem}} == 'azure'
+    uses: ./.github/workflows/azure.yml
+    with:
+      msg: ${{github.event.inputs.mensagem}}
+    secrets: inherit
+  call-gcp-workflow:
+    if: ${{github.event.inputs.nuvem}} == 'gcp'
+    uses: ./.github/workflows/gcp.yml
+    with:
+      msg: ${{github.event.inputs.mensagem}}
+    secrets: inherit 
+  call-oracle-workflow:
+    if: ${{github.event.inputs.nuvem}} == 'oracle'
+    uses: ./.github/workflows/oracle.yml
+    with:
+      msg: ${{github.event.inputs.mensagem}}
+    secrets: inherit 
     
   # This workflow contains a single job called "build"
   build:
